@@ -1,12 +1,9 @@
 // code away!
-const port = 8000 || process.env.PORT;
-const users = require("./users/userRouter");
-const posts = require("./posts/postRouter");
+require("dotenv").config();
+const PORT = process.env.PORT || 4000;
+
 const server = require("./server.js");
 
-server.use("/api/users/", users);
-server.use("/api/posts/", posts);
-
-server.listen(port, () => {
-  console.log(`Server Listening on Port: ${port}`);
+server.listen(PORT, () => {
+  console.log(`Server Listening on Port: ${PORT}`);
 });
