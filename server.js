@@ -19,7 +19,8 @@ server.use("/api/users/", users);
 server.use("/api/posts/", posts);
 
 server.get("/", (req, res) => {
-  res.send(`<h2>Let's write some middleware!</h2>`);
+  const motd = process.env.MOTD || "You are not Prepared!";
+  res.status(200).json({ message: motd });
 });
 
 //custom middleware
